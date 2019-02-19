@@ -37,12 +37,11 @@ Current forecasted roadmap
 ### Scheduled
 ```
 * ChatAPI (January)
-* WhatsApp integration (Waiting for WhatsApp Approval)
+* WhatsApp integration (Approved-March)
 ```
 
 ### Planned
 ```
-* Mobile Pay
 * WeChat integration
 * Video Thumbnails
 * Video Machine Learning Analytics
