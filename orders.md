@@ -2,13 +2,13 @@
 
 Search orders given the passed parameters
 ```
-GET /orders?searchTerm={searchTerm}&status={status}&dealerIds={dealerIds}&createdDateFrom={createdDateFrom}&createdDateTo={createdDateTo}&customerId={customerId}&page={page}&size={size}
+GET /api/v2/{accountId}/repair-order?searchTerm={searchTerm}&status={status}&accountIds={accountIds}&createdDateFrom={createdDateFrom}&createdDateTo={createdDateTo}&customerId={customerId}&page={page}&size={size}
 ```
 
 ### Query Params
 * searchTerm - Searches across multiple fields (dealer, customer, order items)
 * status - Order Status
-* dealerIds - Dealer Id comma separated
+* accountIds - Account Id comma separated
 * createdDateFrom - Order Creation From
 * createdDateTo - Order Creation To
 * customerId - Customer Id
@@ -28,69 +28,63 @@ GET /orders?searchTerm={searchTerm}&status={status}&dealerIds={dealerIds}&create
   "numberOfElements": 7,
   "content": [
     {
-      "id": 1005887,
-      "dateOrdered": "11/21/2018",
-      "securityKey": "E3T7Wn",
-      "securityPinIncluded": null,
-      "userReviewed": null,
-      "customer": {
-        "id": 1019259,
-        "firstName": "Anna",
-        "lastName": "Vuit",
-        "mobileNumber": "",
-        "email": "ssa4test@gmail.com",
-        "mobileStatus": null,
-        "cdkId": null,
-        "sisId": null,
-        "formattedName": "Vuit , Anna",
-        "name": "Anna Vuit"
-      },
-      "dealerId": 394,
-      "orderStatus": {
-        "id": 2,
-        "key": "STATUS_NEW",
-        "value": "New",
-        "category": "ORDER_STATUS",
-        "numberValue": 1,
-        "parentKey": "",
-        "parentKeyString": ""
-      },
-      "previousStatus": null,
-      "orderStatusKey": "STATUS_NEW",
-      "owner": {
-        "id": 3056,
-        "firstName": "Administrator",
-        "lastName": "TruVideo",
-        "middleName": null,
-        "emailAddress": "admin@truvideo.com",
-        "office": "394",
-        "pin": "123456",
-        "title": "",
-        "mobileNumber": "7813253414"
-      }
+        "id": 1008225,
+        "number": "0303456-4",
+        "status": "New",
+        "creationDate": 1545147084414,
+        "updateDate": 1545147085764,
+        "dealer": {
+            "id": 394,
+            "name": "Dealer Xyz",
+            "status": "Active"
+        },
+        "advisor": {
+            "id": 3056,
+            "firstName": "Administrator",
+            "lastName": "TruVideo",
+            "mobileNumber": "7813253414",
+            "email": "admin@truvideo.com",
+            "status": "Approved",
+            "title": "",
+            "dealers": [
+                {
+                    "id": 394,
+                    "name": "Dealer Xyz",
+                    "status": "Active"
+                }
+            ]
+        },
+        "customer": {
+            "id": 1021597,
+            "firstName": "John",
+            "lastName": "D",
+            "mobileNumber": "+5493516650948",
+            "mobileStatus": "Valid",
+            "email": "jd@gmail.com"
+        }
     }
   ]
 }
 ```
 </details>
 
+
 # Create Order
 
 Create a new order given the passed request
 ```
-POST /orders
+POST /api/v2/{accountId}/repair-order
 ```
 <details><summary>Request</summary>
 
 ```json
 {
-  "number": 242432,
-  "customerId": 1019259,
-  "dealerId": 394,
-  "status": "STATUS_NEW",
-  "advisorId": 12403,
-  "technicianId": 1123,
-  "securityPin": true
+	"number":"0303456-4",
+	"customerName":"John",
+	"customerLastName":"D",
+	"mobileNumber":"+5493516650948",
+	"email":"jd@gmail.com",
+	"sendNotifications":true
 }
 
 ```
@@ -100,47 +94,41 @@ POST /orders
 
 ```json
 {
-      "id": 1005887,
-      "dateOrdered": "11/21/2018",
-      "securityKey": "E3T7Wn",
-      "securityPinIncluded": null,
-      "userReviewed": null,
-      "customer": {
-        "id": 1019259,
-        "firstName": "Anna",
-        "lastName": "Vuit",
-        "mobileNumber": "",
-        "email": "ssa4test@gmail.com",
-        "mobileStatus": null,
-        "cdkId": null,
-        "sisId": null,
-        "formattedName": "Vuit , Anna",
-        "name": "Anna Vuit"
-      },
-      "dealerId": 394,
-      "orderStatus": {
-        "id": 2,
-        "key": "STATUS_NEW",
-        "value": "New",
-        "category": "ORDER_STATUS",
-        "numberValue": 1,
-        "parentKey": "",
-        "parentKeyString": ""
-      },
-      "previousStatus": null,
-      "orderStatusKey": "STATUS_NEW",
-      "owner": {
+    "id": 1008225,
+    "number": "0303456-4",
+    "status": "New",
+    "creationDate": 1545147084414,
+    "updateDate": 1545147085764,
+    "dealer": {
+        "id": 394,
+        "name": "Dealer Xyz",
+        "status": "Active"
+    },
+    "advisor": {
         "id": 3056,
         "firstName": "Administrator",
         "lastName": "TruVideo",
-        "middleName": null,
-        "emailAddress": "admin@truvideo.com",
-        "office": "394",
-        "pin": "123456",
+        "mobileNumber": "7813253414",
+        "email": "admin@truvideo.com",
+        "status": "Approved",
         "title": "",
-        "mobileNumber": "7813253414"
-      }
+        "dealers": [
+            {
+                "id": 394,
+                "name": "Dealer Xyz",
+                "status": "Active"
+            }
+        ]
+    },
+    "customer": {
+        "id": 1021597,
+        "firstName": "John",
+        "lastName": "D",
+        "mobileNumber": "+5493516650948",
+        "mobileStatus": "Valid",
+        "email": "jd@gmail.com"
     }
+}
 ```
 </details>
 
@@ -148,19 +136,18 @@ POST /orders
 
 Updates an order given the passed request
 ```
-PUT /orders/{id}
+PUT /api/v2/{accountId}/repair-order/{repairOrderId}
 ```
 <details><summary>Request</summary>
 
 ```json
 {
-  "number": 242432,
-  "customerId": 1019259,
-  "dealerId": 394,
-  "status": "STATUS_NEW",
-  "advisorId": 12403,
-  "technicianId": 1123,
-  "securityPin": true
+	"number":"0303456-4",
+	"customerName":"John",
+	"customerLastName":"D",
+	"mobileNumber":"+5493516650948",
+	"email":"jd@gmail.com",
+	"sendNotifications":true
 }
 
 ```
@@ -170,46 +157,40 @@ PUT /orders/{id}
 
 ```json
 {
-      "id": 1005887,
-      "dateOrdered": "11/21/2018",
-      "securityKey": "E3T7Wn",
-      "securityPinIncluded": null,
-      "userReviewed": null,
-      "customer": {
-        "id": 1019259,
-        "firstName": "Anna",
-        "lastName": "Vuit",
-        "mobileNumber": "",
-        "email": "ssa4test@gmail.com",
-        "mobileStatus": null,
-        "cdkId": null,
-        "sisId": null,
-        "formattedName": "Vuit , Anna",
-        "name": "Anna Vuit"
-      },
-      "dealerId": 394,
-      "orderStatus": {
-        "id": 2,
-        "key": "STATUS_NEW",
-        "value": "New",
-        "category": "ORDER_STATUS",
-        "numberValue": 1,
-        "parentKey": "",
-        "parentKeyString": ""
-      },
-      "previousStatus": null,
-      "orderStatusKey": "STATUS_NEW",
-      "owner": {
+    "id": 1008225,
+    "number": "0303456-4",
+    "status": "New",
+    "creationDate": 1545147084414,
+    "updateDate": 1545147085764,
+    "dealer": {
+        "id": 394,
+        "name": "Dealer Xyz",
+        "status": "Active"
+    },
+    "advisor": {
         "id": 3056,
         "firstName": "Administrator",
         "lastName": "TruVideo",
-        "middleName": null,
-        "emailAddress": "admin@truvideo.com",
-        "office": "394",
-        "pin": "123456",
+        "mobileNumber": "7813253414",
+        "email": "admin@truvideo.com",
+        "status": "Approved",
         "title": "",
-        "mobileNumber": "7813253414"
-      }
+        "dealers": [
+            {
+                "id": 394,
+                "name": "Dealer Xyz",
+                "status": "Active"
+            }
+        ]
+    },
+    "customer": {
+        "id": 1021597,
+        "firstName": "John",
+        "lastName": "D",
+        "mobileNumber": "+5493516650948",
+        "mobileStatus": "Valid",
+        "email": "jd@gmail.com"
     }
+}
 ```
 </details>
