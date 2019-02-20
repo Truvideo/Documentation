@@ -68,6 +68,54 @@ GET /api/v2/{accountId}/repair-order?searchTerm={searchTerm}&status={status}&acc
 ```
 </details>
 
+# Get Order by ID
+
+Returns the order for the passed id
+```
+GET /api/v2/{accountId}/repair-order/{repairOrderId}
+```
+<details><summary>Response</summary>
+
+```json
+{
+    "id": 1008225,
+    "number": "0303456-4",
+    "status": "New",
+    "creationDate": 1545147084414,
+    "updateDate": 1545147085764,
+    "dealer": {
+        "id": 394,
+        "name": "Dealer Xyz",
+        "status": "Active"
+    },
+    "advisor": {
+        "id": 3056,
+        "firstName": "Administrator",
+        "lastName": "TruVideo",
+        "mobileNumber": "7813253414",
+        "email": "admin@truvideo.com",
+        "status": "Approved",
+        "title": "",
+        "dealers": [
+            {
+                "id": 394,
+                "name": "Dealer Xyz",
+                "status": "Active"
+            }
+        ]
+    },
+    "customer": {
+        "id": 1021597,
+        "firstName": "John",
+        "lastName": "D",
+        "mobileNumber": "+5493516650948",
+        "mobileStatus": "Valid",
+        "email": "jd@gmail.com"
+    }
+}
+```
+</details>
+
 
 # Create Order
 
