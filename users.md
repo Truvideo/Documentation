@@ -1,8 +1,9 @@
+
 # Search Users
 
 Search orders given the passed parameters
 ```
-GET /users?searchTerm={searchTerm}&status={status}&createdDateFrom={createdDateFrom}&createdDateTo={createdDateTo}&page={page}&size={size}
+GET /api/v2/{accountId}/users?searchTerm={searchTerm}&status={status}&createdDateFrom={createdDateFrom}&createdDateTo={createdDateTo}&page={page}&size={size}
 ```
 
 ### Query Params
@@ -27,18 +28,37 @@ GET /users?searchTerm={searchTerm}&status={status}&createdDateFrom={createdDateF
   "content": [
     {
       "id": 3511,
-      "firstName": "John",
-      "lastName": "Doe",
-      "email": "jonh.doe@gmail.com",
-      "title": "Technician",
-      "status": "ACTIVE",
+	  "firstName": "John",
+	  "lastName": "Doe",
+	  "title": "Technician",
+	  "email": "jonh.doe@gmail.com",
+	  "mobileNumber": "+12025550185",
+      "status": "Approved",
       "dealers": [
-        1,
-        2
+        {
+          "id": 553,
+          "name": "Baker Cadillac",
+          "partner": 1,
+          "distributor": 2,
+          "status": "Active",
+          "phone": "+12025550119",
+          "supportNumber": "+12025550145",
+          "timeZone": "America/New_York"
+        },
+        {
+          "id": 549,
+          "name": "AutoFair Subaru",
+          "partner": 1,
+          "distributor": 2,
+          "status": "Active",
+          "phone": "+12025550343",
+          "supportNumber": "+12025550303",
+          "timeZone": "America/New_York"
+        }
       ],
       "roles": [
-        "USER",
-        "ADMIN"
+        "Service App",
+        "Service Dashboard"
       ]
     }
   ]
@@ -46,11 +66,60 @@ GET /users?searchTerm={searchTerm}&status={status}&createdDateFrom={createdDateF
 ```
 </details>
 
+# Get User
+
+Get a user given the passed id
+```
+GET /api/v2/{accountId}/users/{userId}
+```
+
+<details><summary>Response</summary>
+
+```json
+{
+  "id": 3511,
+  "firstName": "John",
+  "lastName": "Doe",
+  "title": "Technician",
+  "email": "jonh.doe@gmail.com",
+  "mobileNumber": "+12025550185",
+  "status": "Approved",
+  "dealers": [
+     {
+       "id": 553,
+       "name": "Baker Cadillac",
+       "partner": 1,
+       "distributor": 2,
+       "status": "Active",
+       "phone": "+12025550119",
+       "supportNumber": "+12025550145",
+       "timeZone": "America/New_York"
+     },
+     {
+       "id": 549,
+       "name": "AutoFair Subaru",
+       "partner": 1,
+       "distributor": 2,
+       "status": "Active",
+       "phone": "+12025550343",
+       "supportNumber": "+12025550303",
+       "timeZone": "America/New_York"
+     }
+   ],
+   "roles": [
+     "Service App",
+     "Service Dashboard"
+   ]
+}
+```
+</details>
+
+
 # Create User
 
 Create a new user given the passed request
 ```
-POST /users
+POST /api/v2/{accountId}/users
 ```
 <details><summary>Request</summary>
 
@@ -58,17 +127,18 @@ POST /users
 {
   "firstName": "John",
   "lastName": "Doe",
-  "email": "jonh.doe@gmail.com",
   "title": "Technician",
-  "status": "ACTIVE",
+  "email": "jonh.doe@gmail.com",
+  "mobileNumber": "+12025550185",
+  "status": "Approved",
   "dealers": [
-    1,
-    2
-  ],
-  "roles": [
-    "USER",
-    "ADMIN"
-  ]
+     553,
+     549
+   ],
+   "roles": [
+     "Service App",
+     "Service Dashboard"
+   ]
 }
 ```
 </details>
@@ -80,17 +150,36 @@ POST /users
   "id": 3511,
   "firstName": "John",
   "lastName": "Doe",
-  "email": "jonh.doe@gmail.com",
   "title": "Technician",
-  "status": "ACTIVE",
+  "email": "jonh.doe@gmail.com",
+  "mobileNumber": "+12025550185",
+  "status": "Approved",
   "dealers": [
-    1,
-    2
-  ],
-  "roles": [
-    "USER",
-    "ADMIN"
-  ]
+     {
+       "id": 553,
+       "name": "Baker Cadillac",
+       "partner": 1,
+       "distributor": 2,
+       "status": "Active",
+       "phone": "+12025550119",
+       "supportNumber": "+12025550145",
+       "timeZone": "America/New_York"
+     },
+     {
+       "id": 549,
+       "name": "AutoFair Subaru",
+       "partner": 1,
+       "distributor": 2,
+       "status": "Active",
+       "phone": "+12025550343",
+       "supportNumber": "+12025550303",
+       "timeZone": "America/New_York"
+     }
+   ],
+   "roles": [
+     "Service App",
+     "Service Dashboard"
+   ]
 }
 ```
 </details>
@@ -99,7 +188,7 @@ POST /users
 
 Updates a user given the passed request
 ```
-PUT /users/{id}
+PUT /api/v2/{accountId}/users/{id}
 ```
 <details><summary>Request</summary>
 
@@ -107,17 +196,16 @@ PUT /users/{id}
 {
   "firstName": "John",
   "lastName": "Doe",
-  "email": "jonh.doe@gmail.com",
   "title": "Technician",
-  "status": "ACTIVE",
+  "email": "jonh.doe@gmail.com",
+  "mobileNumber": "+12025550185",
+  "status": "Approved",
   "dealers": [
-    1,
-    2
-  ],
-  "roles": [
-    "USER",
-    "ADMIN"
-  ]
+     553
+   ],
+   "roles": [
+     "Service App"
+   ]
 }
 ```
 </details>
@@ -129,17 +217,25 @@ PUT /users/{id}
   "id": 3511,
   "firstName": "John",
   "lastName": "Doe",
-  "email": "jonh.doe@gmail.com",
   "title": "Technician",
-  "status": "ACTIVE",
+  "email": "jonh.doe@gmail.com",
+  "mobileNumber": "+12025550185",
+  "status": "Approved",
   "dealers": [
-    1,
-    2
-  ],
-  "roles": [
-    "USER",
-    "ADMIN"
-  ]
+     {
+       "id": 553,
+       "name": "Baker Cadillac",
+       "partner": 1,
+       "distributor": 2,
+       "status": "Active",
+       "phone": "+12025550119",
+       "supportNumber": "+12025550145",
+       "timeZone": "America/New_York"
+     }
+   ],
+   "roles": [
+     "Service App"
+   ]
 }
 ```
 </details>
