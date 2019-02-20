@@ -43,7 +43,7 @@ GET /api/v2/{accountId}/customers?searchTerm={searchTerm}&status={status}&page={
 ```
 </details>
 
-# Get Custoemr by ID
+# Get Customer by ID
 
 Returns the customer for the passed id
 ```
