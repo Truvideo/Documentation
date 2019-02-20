@@ -2,7 +2,7 @@
 
 Search dealers given the passed parameters
 ```
-GET /dealers?searchTerm={searchTerm}&status={status}&page={page}&size={size}
+GET /api/v2/{accountId}/dealers?searchTerm={searchTerm}&status={status}&page={page}&size={size}
 ```
 
 ### Query Params
@@ -26,26 +26,12 @@ GET /dealers?searchTerm={searchTerm}&status={status}&page={page}&size={size}
     {
       "id": 203,
       "name": "A21 Motors",
-      "partner": {
-        "id": 2,
-        "name": "Truvideo",
-        "phone": "(781) 123-123123",
-        "email": "info@truvideo.com",
-        "code": "tv"
-      },
-      "distributor": null,
-      "status": {
-        "value": "Active"
-      },
-      "phone": "55 (11) 123-123",
-      "supportNumber": "123-123-123",
-      "timezone": {
-        "id": 12,
-        "key": "TZ_CST",
-        "value": "America/Chicago",
-        "category": "TIMEZONE",
-        "numberValue": -6
-      }
+      "partner": 2,
+      "distributor": 528,
+      "status": "Active",
+      "phone": "508-523-5151",
+      "supportNumber": "(781) 819-0125",
+      "timezone": "America/Chicago"
     }
   ]
 }
@@ -56,7 +42,7 @@ GET /dealers?searchTerm={searchTerm}&status={status}&page={page}&size={size}
 
 Returns the dealer for the passed id
 ```
-GET /dealers/{id}
+GET /api/v2/{accountId}/dealers/{id}
 ```
 <details><summary>Response</summary>
 
@@ -64,26 +50,12 @@ GET /dealers/{id}
 {
   "id": 203,
   "name": "A21 Motors",
-  "partner": {
-    "id": 2,
-    "name": "Truvideo",
-    "phone": "(781) 123-123123",
-    "email": "info@truvideo.com",
-    "code": "tv"
-  },
-  "distributor": null,
-  "status": {
-    "value": "Active"
-  },
-  "phone": "55 (11) 123-123",
-  "supportNumber": "123-123-123",
-  "timezone": {
-    "id": 12,
-    "key": "TZ_CST",
-    "value": "America/Chicago",
-    "category": "TIMEZONE",
-    "numberValue": -6
-  }
+  "partner": 2,
+  "distributor": 528,
+  "status": "Active",
+  "phone": "508-523-5151",
+  "supportNumber": "(781) 819-0125",
+  "timezone": "America/Chicago"
 }
 ```
 </details>
@@ -92,7 +64,7 @@ GET /dealers/{id}
 
 Create a new dealer given the passed request
 ```
-POST /dealers
+POST /api/v2/{accountId}/dealers
 ```
 <details><summary>Request</summary>
 
@@ -100,10 +72,10 @@ POST /dealers
 {
   "name": "A21 Motors",
   "partner": 2,
-  "distributor": null,
+  "distributor": 528,
   "status": "Active",
-  "phone": "55 (11) 123-123",
-  "supportNumber": "123-123-123",
+  "phone": "508-523-5151",
+  "supportNumber": "(781) 819-0125",
   "timezone": "America/Chicago"
 }
 
@@ -116,26 +88,12 @@ POST /dealers
 {
   "id": 203,
   "name": "A21 Motors",
-  "partner": {
-    "id": 2,
-    "name": "Truvideo",
-    "phone": "(781) 123-123123",
-    "email": "info@truvideo.com",
-    "code": "tv"
-  },
-  "distributor": null,
-  "status": {
-    "value": "Active"
-  },
-  "phone": "55 (11) 123-123",
-  "supportNumber": "123-123-123",
-  "timezone": {
-    "id": 12,
-    "key": "TZ_CST",
-    "value": "America/Chicago",
-    "category": "TIMEZONE",
-    "numberValue": -6
-  }
+  "partner": 2,
+  "distributor": 528,
+  "status": "Active",
+  "phone": "508-523-5151",
+  "supportNumber": "(781) 819-0125",
+  "timezone": "America/Chicago"
 }
 ```
 </details>
@@ -144,7 +102,7 @@ POST /dealers
 
 Update a dealer given the passed request
 ```
-PUT /dealers/{id}
+PUT /api/v2/{accountId}/dealers/{id}
 ```
 <details><summary>Request</summary>
 
@@ -152,10 +110,10 @@ PUT /dealers/{id}
 {
   "name": "A21 Motors",
   "partner": 2,
-  "distributor": null,
+  "distributor": 528,
   "status": "Active",
-  "phone": "55 (11) 123-123",
-  "supportNumber": "123-123-123",
+  "phone": "508-523-5151",
+  "supportNumber": "(781) 819-0125",
   "timezone": "America/Chicago"
 }
 
@@ -168,26 +126,12 @@ PUT /dealers/{id}
 {
   "id": 203,
   "name": "A21 Motors",
-  "partner": {
-    "id": 2,
-    "name": "Truvideo",
-    "phone": "(781) 123-123123",
-    "email": "info@truvideo.com",
-    "code": "tv"
-  },
-  "distributor": null,
-  "status": {
-    "value": "Active"
-  },
-  "phone": "55 (11) 123-123",
-  "supportNumber": "123-123-123",
-  "timezone": {
-    "id": 12,
-    "key": "TZ_CST",
-    "value": "America/Chicago",
-    "category": "TIMEZONE",
-    "numberValue": -6
-  }
+  "partner": 2,
+  "distributor": 528,
+  "status": "Active",
+  "phone": "508-523-5151",
+  "supportNumber": "(781) 819-0125",
+  "timezone": "America/Chicago"
 }
 ```
 </details>
