@@ -1,6 +1,6 @@
 # TruVideo
 
-This open-source library allows you to integrate your application into the Truvideo platform. The current platform is designed for the automotive market. This library allows for integration with our reporting services, enabling reporting, at the technician, service advisor level, all the way up through the dealer and to the manufacturer. To test this API, a Truvideo Sandbox account needs to be created. We also have very strcit security guidlines. If you wish to integrate with Truvideo please send your enquiry to devmgr@truvideo.com. 
+This open-source library allows you to integrate your application into the Truvideo platform. The current platform is designed for the automotive market. This library allows for integration with our reporting services, enabling reporting, at the technician, service advisor level, all the way up through the dealer and to the manufacturer. To test this API, a Truvideo Sandbox account needs to be created. We also have very strcit security guidlines. If you wish to integrate with Truvideo please send your enquiry to devmgr+git@truvideo.com. 
 
 # Mobile Apps
 
