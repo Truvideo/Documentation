@@ -43,7 +43,7 @@ GET /api/v2/{accountId}/videos?searchTerm={searchTerm}&dealerId={dealerId}&order
 
 # Get Video by ID
 
-Returns the dealer for the passed id
+Returns the video for the passed id
 ```
 GET /api/v2/{accountId}/videos/{id}
 ```
@@ -67,7 +67,7 @@ GET /api/v2/{accountId}/videos/{id}
 
 # Create Video
 
-Create a new dealer given the passed request
+Create a new video given the passed request
 ```
 POST /api/v2/{accountId}/videos
 ```
@@ -107,7 +107,7 @@ POST /api/v2/{accountId}/videos
 
 # Update Video
 
-Update a dealer given the passed request
+Update a video given the passed request
 ```
 PUT /api/v2/{accountId}/video/{id}
 ```
