@@ -54,7 +54,7 @@ GET /api/v2/{{accountId}}/repair-order/{{orderId}}
 Returns orders by the provided status.
 
 ```
-GET /api/v2/{{accountId}}/repair-order/list/{{STATUS_KEY}}
+GET /api/v2/{{accountId}}/repair-order/status/{{STATUS_KEY}}
 ```
 
 <details><summary>Response</summary>
