@@ -14,6 +14,8 @@ This open-source library allows you to integrate your application into the Truvi
 * Orders: https://github.com/GetTransparency/Documentation/blob/master/orders.md
 * Chat: https://github.com/GetTransparency/Documentation/blob/master/chat.md
 * Files: https://github.com/GetTransparency/Documentation/blob/master/files.md
+* Customers: https://github.com/GetTransparency/Documentation/blob/master/customers.md
+* Support: https://github.com/GetTransparency/Documentation/blob/master/support.md
 
 
 # Authorization
