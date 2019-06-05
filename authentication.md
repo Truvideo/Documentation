@@ -1,8 +1,8 @@
-# Get Access Token
+# Login
 
-Returns an access token for the passed credentials 
+Logs the user into the system and returns an access token for the passed credentials.
 ```
-POST /authentication
+POST /api/v2/authentication/login
 ```
 <details><summary>Request</summary>
 
@@ -23,3 +23,12 @@ POST /authentication
 }
 ```
 </details>
+
+# Logout
+
+Logs the user out of the system.
+```
+POST /api/v2/authentication/logout
+```
+Empty request and response body.  
+**Note**: Authentication header must be present in the request.
