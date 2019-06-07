@@ -299,3 +299,82 @@ GET /api/v2/{{accountId}}/repair-order
 }
 ```
 </details>
+
+## Search Orders
+
+Look for a set of orders depending of a search term and an interval of dates.
+
+```
+POST /api/v2/{{accountId}}/repair-order/search
+```
+
+<details><summary>Request</summary>
+
+```json
+{
+	"searchTerm": "term",
+	"dateFrom": "2018-01-01",
+	"dateTo": "2019-06-07"
+}
+```
+</details>
+
+###### Search term applies to the following attributes of an Order:
+- Job Service Number.
+- Customer name.
+- Dealer name.
+- Payment Method.
+
+<details><summary>Response</summary>
+
+```json
+{
+    "content": [
+        {
+            "id": 1,
+            "number": "1",
+            "status": "STATUS_SENT",
+            "repairCondition": "repairCondition",
+            "originalAmount": 1,
+            "creationDate": 1550237332000,
+            "updateDate": 1550241053000,
+            "dealer": {
+                "id": 41,
+                "name": "Main Street Toyota",
+                "status": "Active",
+                "phone": "508-523-5151",
+                "supportNumber": "(781) 819-0125",
+                "partner": 2,
+                "distributor": "distributor",
+                "timeZone": "America/New_York"
+            },
+            "advisor": {
+                "id": 3056,
+                "firstName": "firstName",
+                "lastName": "lastName",
+                "title": "title",
+                "mobileNumber": "7813253414",
+                "email": "email@email.com",
+                "status": "Approved"
+            },
+            "customer": {
+                "id": 1057833,
+                "firstName": "Pablo",
+                "lastName": "Chiban",
+                "mobileNumber": "+5493512159262",
+                "mobileStatus": "Valid",
+                "email": "pablo.chiban@kenility.com"
+            }
+        }
+    ],
+    "last": true,
+    "totalElements": 1,
+    "totalPages": 1,
+    "size": 25,
+    "number": 0,
+    "sort": null,
+    "first": true,
+    "numberOfElements": 1
+}
+```
+</details>
