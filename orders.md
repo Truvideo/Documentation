@@ -49,7 +49,7 @@ GET /api/v2/{{accountId}}/repair-order/{{orderId}}
 ```
 </details>
 
-# Get Orders by Status
+## Get Orders by Status
 
 Returns orders by the provided status.
 
@@ -112,7 +112,7 @@ GET /api/v2/{{accountId}}/repair-order/status/{{STATUS_KEY}}
 </details>
 
 
-# Create Order
+## Create Order
 
 Create a new order given the passed request
 ```
@@ -175,7 +175,7 @@ POST /api/v2/{accountId}/repair-order
 ```
 </details>
 
-# Update Order
+## Update Order
 
 Updates an order given the passed request
 ```
@@ -234,6 +234,67 @@ PUT /api/v2/{accountId}/repair-order/{repairOrderId}
         "mobileStatus": "Valid",
         "email": "tomas.peirotti@gmail.com"
     }
+}
+```
+</details>
+
+## Search Orders
+
+Get orders by a search term that will be compared with: Customer first name, 
+Customer last name, Job Service Number and Dealer name. It can be also filtered by a date interval.
+```
+GET /api/v2/{accountId}/repair-order/search?creationDateFrom=1514813781000&creationDateTo=1575207381000&searchTerm=1
+```
+<details><summary>Response</summary>
+
+```json
+{
+    "content": [
+        {
+            "id": 266722,
+            "number": "441062",
+            "status": "STATUS_NEW",
+            "repairCondition": "repairCondition",
+            "originalAmount": 1,
+            "creationDate": 1516223208000,
+            "updateDate": 1516223257000,
+            "dealer": {
+                "id": 41,
+                "name": "DEMO - Main Street Toyota",
+                "status": "Inactive",
+                "phone": "+15085235151",
+                "supportNumber": "+17818190125",
+                "partner": 2,
+                "distributor": "distributor",
+                "timeZone": "America/New_York"
+            },
+            "advisor": {
+               "id": 3056,
+               "firstName": "firstName",
+               "lastName": "lastName",
+               "title": "title",
+               "mobileNumber": "7813253414",
+               "email": "email@email.com",
+               "status": "Approved"
+            },
+            "customer": {
+                "id": 270843,
+                "firstName": "Cherl",
+                "lastName": "Daly",
+                "mobileNumber": "+15086125134",
+                "mobileStatus": "Valid",
+                "email": "cdaly@email.com"
+            }
+        }
+    ],
+    "last": false,
+    "totalElements": 43,
+    "totalPages": 2,
+    "size": 25,
+    "number": 0,
+    "sort": null,
+    "first": true,
+    "numberOfElements": 25
 }
 ```
 </details>
