@@ -4,8 +4,16 @@
 
 # Validate phone number
 ```
-GET /api/v2/{{accountId}}/customer/validatePhoneNumber?number=+5493512894229
+POST /api/v2/{{accountId}}/customer/validatePhoneNumber
 ```
+<details><summary>Request</summary>
+
+```json
+{
+    "phone": "+5493512894229"
+}
+```
+</details>
 
 <details><summary>Response</summary>
 
