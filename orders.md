@@ -242,8 +242,9 @@ PUT /api/v2/{accountId}/repair-order/{repairOrderId}
 
 Get orders by a search term that will be compared with: Customer first name, 
 Customer last name, Job Service Number and Dealer name. It can be also filtered by a date interval.
+There's also a query param to filter orders by status.
 ```
-GET /api/v2/{accountId}/repair-order/search?creationDateFrom=1514813781000&creationDateTo=1575207381000&searchTerm=1
+GET /api/v2/{accountId}/repair-order/search?creationDateFrom=1514813781000&creationDateTo=1575207381000&searchTerm=1&status=STATUS_NEW
 ```
 <details><summary>Response</summary>
 
