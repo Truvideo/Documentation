@@ -181,6 +181,10 @@ Updates an order given the passed request
 ```
 PUT /api/v2/{accountId}/repair-order/{repairOrderId}
 ```
+### Query Params
+* accountId - Dealer id
+* repairOrderId
+
 <details><summary>Request</summary>
 
 ```json
@@ -189,7 +193,6 @@ PUT /api/v2/{accountId}/repair-order/{repairOrderId}
 	"customerLastName": "Argento",
 	"mobileNumber": "+5493512894229",
 	"email": "tomas.peirotti@gmail.com",
-	"originalAmount": 1234.58,
 	"serviceAdvisor": 3056
 }
 
@@ -204,7 +207,6 @@ PUT /api/v2/{accountId}/repair-order/{repairOrderId}
     "number": "1",
     "status": "STATUS_SENT",
     "repairCondition": "condition",
-    "originalAmount": 1234.58,
     "creationDate": 1550237332000,
     "updateDate": 1559764386725,
     "dealer": {
